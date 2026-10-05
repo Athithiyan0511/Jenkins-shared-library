@@ -1,3 +1,4 @@
 def call(String repoUrl, String branch = 'main') {
-    git branch: branch, url: repoUrl
+    def normalizedUrl = repoUrl.replaceFirst(/^git@github.com:/, 'https://github.com/')
+    git branch: branch, url: normalizedUrl
 }
